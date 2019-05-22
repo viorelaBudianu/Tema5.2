@@ -82,9 +82,9 @@ namespace CarStore
 
         
         //Methods
-        public void FullName()
+        public string FullName()
         {
-            Console.Write($"{LastName} {FirstName}");
+            return lastName+" "+FirstName;
         }
     }
 }

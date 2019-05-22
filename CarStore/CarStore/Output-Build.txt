@@ -1,0 +1,4 @@
+﻿1>------ Build started: Project: CarStore, Configuration: Debug Any CPU ------
+1>C:\Users\vbudianu\Desktop\VIO\T5.2\CarStore\CarStore\CarStore\Customer.cs(62,31,62,42): warning CS0472: The result of the expression is always 'false' since a value of type 'int' is never equal to 'null' of type 'int?'
+1>  CarStore -> C:\Users\vbudianu\Desktop\VIO\T5.2\CarStore\CarStore\CarStore\bin\Debug\CarStore.exe
+========== Build: 1 succeeded, 0 failed, 0 up-to-date, 0 skipped ==========

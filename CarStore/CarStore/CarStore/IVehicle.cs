@@ -2,7 +2,7 @@
 
 namespace CarStore
 {
-    public interface IVehicle
+    public interface IVehicle:IProducer
     {
         string Manufacturer { get; set; }
         string Model { get; set; }

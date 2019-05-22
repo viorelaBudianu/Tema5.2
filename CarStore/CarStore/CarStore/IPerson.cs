@@ -7,6 +7,6 @@
         int Age { get; set; }
         string Adress { get; set; }
 
-        void FullName();
+        string FullName();
     }
 }

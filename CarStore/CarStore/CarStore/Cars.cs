@@ -4,7 +4,7 @@ namespace CarStore
 {
     public class Cars : IVehicle
     {
-        private string manufacturer;
+        private string Name;
         private string model;
         private DateTime releaseDate;
         private double ValueCar;
@@ -12,7 +12,7 @@ namespace CarStore
         //constructor
         public Cars(string Manufacturer, string Model, DateTime ReleaseDate)
         {
-            this.manufacturer = Manufacturer;
+            this.Name = Manufacturer;
             this.model = Model;
             this.releaseDate = ReleaseDate;
         }
@@ -22,11 +22,11 @@ namespace CarStore
         {
             get
             {
-                return this.manufacturer;
+                return this.Name;
             }
             set
             {
-                this.manufacturer = value;
+                this.Name = value;
             }
         }
         public string Model
@@ -63,14 +63,20 @@ namespace CarStore
                 {
                     throw new ArgumentException("Value of the car should not be empty!");
                 }
-                this.ValueCar = CarValue;
+                else
+                {
+                    this.ValueCar = value;
+                }
+                
             }
         }
+
+        string IProducer.Name { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
         //metode
         public string Car()
         {
-            return this.manufacturer + " " + this.model + " " +Convert.ToString(this.releaseDate.Year);
+            return this.Name + " " + this.model + " " +Convert.ToString(this.releaseDate.Year);
         }
 
     }

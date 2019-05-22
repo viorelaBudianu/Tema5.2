@@ -3,17 +3,16 @@ using System;
 
 namespace CarStore
 {
-    public class Order:IOrder
+    public class Order : IOrder
     {
         private uint OrderId; //OrderID trebuie sa fie unic, si ca sa-l facem unic, avem o lista 
         private List<uint> Orders = new List<uint>(); // si cand initializam order, o sa verificam daca valoarea pt OrdeId se afla in lista  
-        private string buyer;
+        private IPerson buyer;
         private string product;
         private uint quantity;
         private double ValueOfProduct;  //ar trebui sa fie pretul masinii 
-        
-        public DateTime OrderDate { get { return this.OrderDate; }
-            set { this.OrderDate = DateTime.Now; } } //orderDate ar trebui sa fie mereu data curenta, deci o sa facem proprietatea by default cu Today/Now
+        private Store store = new Store();
+        public DateTime OrderDate {get; set;} //orderDate ar trebui sa fie mereu data curenta, deci o sa facem proprietatea by default cu Today/Now
         public DateTime OrderArrival { get; set; }
 
 
@@ -21,7 +20,7 @@ namespace CarStore
         //constructor
         public Order()
         { }
-        public Order (uint Id, string buyer)
+        public Order (uint Id, IPerson buyer)
         {
             if (Orders.Contains(Id))
             {
@@ -30,7 +29,15 @@ namespace CarStore
             else
             {
                 this.OrderId = Id;
-                Orders.Add(Id);               
+                Orders.Add(Id);
+                this.OrderDate = DateTime.Now;
+                if(store.StoreName=="FordStore")
+                {
+                    this.OrderArrival = this.OrderDate.AddDays(28);
+                }
+                    
+                if (store.StoreName=="SkodaStore")
+                    this.OrderArrival = this.OrderDate.AddDays(18);
             }
             this.buyer = buyer;
         }
@@ -57,7 +64,7 @@ namespace CarStore
             }
         }
 
-        public string Buyer
+        public IPerson Buyer
         {
             get
             {
@@ -111,7 +118,8 @@ namespace CarStore
             }
         }
 
-        //metode
+        //metode 
+      
 
         public double TotalOrder(double Price, uint Quantity)
         {

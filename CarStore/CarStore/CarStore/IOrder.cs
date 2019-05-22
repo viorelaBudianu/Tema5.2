@@ -6,7 +6,7 @@ namespace CarStore
     {
         uint OrderID { get; set; }
         
-        string Buyer { get; set; }  // buyer in main o sa fie = customer.FullName()
+        IPerson Buyer { get; set; }  
         string Product { get; set; } // Product o sa fie dat de metoda Car() din clasa Cars
         DateTime OrderDate { get; set; }
         DateTime OrderArrival { get; set; }
